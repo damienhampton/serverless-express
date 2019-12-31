@@ -1,0 +1,16 @@
+{
+  "name": "serverless-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Damien Hampton <damien@26brains.com> (https://twitter.com/damien_hampton)",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "serverless-http": "^2.3.0"
+  }
+}
