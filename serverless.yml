@@ -8,20 +8,11 @@ provider:
   profile: edu
 
 # you can add statements to the Lambda function's IAM Role here
-#  iamRoleStatements:
-#    - Effect: "Allow"
-#      Action:
-#        - "s3:ListBucket"
-#      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
-#    - Effect: "Allow"
-#      Action:
-#        - "s3:PutObject"
-#      Resource:
-#        Fn::Join:
-#          - ""
-#          - - "arn:aws:s3:::"
-#            - "Ref" : "ServerlessDeploymentBucket"
-#            - "/*"
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "dynamoDb:*"
+      Resource: "*"
 
 # you can define service wide environment variables here
 #  environment:
@@ -30,7 +21,7 @@ provider:
 
 functions:
   lambda-api:
-    handler: lambda.api
+    handler: src/launch/lambda.api
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'
@@ -46,3 +37,18 @@ functions:
 #     NewOutput:
 #       Description: "Description for the output"
 #       Value: "Some output value"
+resources:
+  Resources:
+    logsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: logs
+        AttributeDefinitions:
+          - AttributeName: date
+            AttributeType: S
+        KeySchema:
+          - AttributeName: date
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1

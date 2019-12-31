@@ -4,6 +4,8 @@
   "description": "",
   "main": "handler.js",
   "scripts": {
+    "start": "node src/launch/server",
+    "nodemon": "node_modules/.bin/nodemon src/launch/server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Damien Hampton <damien@26brains.com> (https://twitter.com/damien_hampton)",
@@ -11,6 +13,8 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "mongodb": "^3.4.1",
+    "nodemon": "^2.0.2",
     "serverless-http": "^2.3.0"
   }
 }
