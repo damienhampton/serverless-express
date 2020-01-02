@@ -3,7 +3,7 @@ const app = require('../lib/express-create').create();
 const uri = 'mongodb://mongo:27017/testdb';
 
 async function main(){
-  const driver = await require('../lib/mongo-wrapper').init({ uri });
+  const driver = await require('../app/mongo-wrapper').init({ uri });
   const appDb = require('../app/my-app-database').init({ driver });
 
   const myApp = require('../app/my-app').init({ app, appDb });
