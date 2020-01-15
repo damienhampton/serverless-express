@@ -1,6 +1,6 @@
 # Serverless Express test
 
-*** Requires docker and/or AWS CLI credentials and Serverless framework ***
+Requires docker and/or AWS CLI credentials and Serverless framework.
 
 Application runs locally using docker to create Express app and Mongo database.
 
@@ -8,7 +8,7 @@ Can be deployed, via Serverless, to AWS using Lambda and DynamoDB.
 
 Express app exposes one endpoint that logs requests to database.
 
-## Install
+## Install
 
 ```npm i```
 
@@ -28,5 +28,5 @@ To remove run ```sls remove```
 
 ## Links
 
-https://serverless.com/
-https://aws.amazon.com/cli/
+- https://serverless.com/
+- https://aws.amazon.com/cli/
